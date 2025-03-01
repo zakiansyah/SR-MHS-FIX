@@ -170,14 +170,6 @@
             <span>Data Penilaian</span></a>
         </li>
 
-        <li class="nav-item <?php if ($page == "Perhitungan") {
-                              echo "active";
-                            } ?>">
-          <a class="nav-link" href="Perhitungan.php">
-            <i class="fas fa-fw fa-calculator"></i>
-            <span>Data Perhitungan</span></a>
-        </li>
-
         <li class="nav-item <?php if ($page == "Hasil") {
                               echo "active";
                             } ?>">

@@ -37,14 +37,11 @@ if ($user_role === 'admin' || $user_role === 'user') {
                         <tr align="center">
                             <th>Nama Alternatif</th>
                             <th>Nilai</th>
-                            <th width="15%">Rank</th>
                             <th width="15%">Hasil Rekomendasi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $no = 0;
-                        // Query untuk mengambil data hasil hanya untuk user yang sedang login
                         $stmt = $koneksi->prepare("
                             SELECT hasil_user.*, alternatif_user.nama 
                             FROM hasil_user 
@@ -52,24 +49,22 @@ if ($user_role === 'admin' || $user_role === 'user') {
                             WHERE alternatif_user.id_user = ? 
                             ORDER BY hasil_user.nilai DESC
                         ");
-                        $stmt->bind_param("i", $user_id); // Menggunakan parameter binding untuk mencegah SQL Injection
+                        $stmt->bind_param("i", $user_id);
                         $stmt->execute();
                         $result = $stmt->get_result();
 
                         while ($data = $result->fetch_assoc()) {
-                            $no++;
                             $hasil_rekomendasi = $data['nilai'] > 0.5 ? 'Tepat Waktu' : 'Tidak Tepat Waktu';
                             $button_class = $data['nilai'] > 0.5 ? 'btn-success' : 'btn-danger';
-                        ?>
+                            ?>
                             <tr align="center">
                                 <td align="left"><?= htmlspecialchars($data['nama']) ?></td>
                                 <td><?= htmlspecialchars(number_format($data['nilai'], 2)) ?></td>
-                                <td><?= $no; ?></td>
                                 <td><button class="btn <?= $button_class ?> btn-sm"> <?= $hasil_rekomendasi ?> </button></td>
                             </tr>
-                        <?php
+                            <?php
                         }
-                        $stmt->close(); // Tutup statement
+                        $stmt->close();
                         ?>
                     </tbody>
                 </table>

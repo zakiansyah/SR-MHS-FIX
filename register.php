@@ -62,55 +62,71 @@ $page = "Register";
 require_once('template/header_register.php'); // Header HTML
 ?>
 
-<div class="container mt-4">
-    <h1 class="text-center">Register Pengguna Baru</h1>
-    
-    <!-- Alert Sukses -->
-    <?php if ($sukses): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Berhasil!</strong> Akun Anda telah terdaftar. Silakan <a href="login.php" class="alert-link">login</a>.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
+<body class="bg-gradient-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-white shadow-lg pb-3 pt-3 font-weight-bold">
+            <div class="container">
+                <a class="navbar-brand text-primary" style="font-weight: 900;" href="login.php"> <i class="fa fa-database mr-2 rotate-n-15"></i> Sistem Rekomendasi Mahasiswa Berpotensi Lulus Tepat Waktu Metode SMART</a>
+            </div>
+        </nav>
 
-    <!-- Alert Gagal -->
-    <?php if (!empty($errors)): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Pendaftaran Gagal!</strong> Berikut adalah masalah yang terjadi:
-            <ul>
-                <?php foreach ($errors as $error): ?>
-                    <li><?php echo $error; ?></li>
-                <?php endforeach; ?>
-            </ul>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
 
-    <form action="register.php" method="post">
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control" required />
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="col-xl-5 col-lg-5 col-md-5">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Register Account</h1>
+                            </div>
+                            
+                            <!-- Alert Sukses -->
+                            <?php if ($sukses): ?>
+                                <div class="alert alert-success text-center">
+                                    <strong>Berhasil!</strong> Akun Anda telah terdaftar. Silakan <a href="login.php" class="alert-link">login</a>.
+                                </div>
+                            <?php endif; ?>
+                            
+                            <!-- Alert Gagal -->
+                            <?php if (!empty($errors)): ?>
+                                <?php foreach ($errors as $error): ?>
+                                    <div class="alert alert-danger text-center"> <?php echo $error; ?> </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                            <form class="user" action="register.php" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control form-control-user" placeholder="Username" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control form-control-user" placeholder="Password" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password2" class="form-control form-control-user" placeholder="Konfirmasi Password" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="nama" class="form-control form-control-user" placeholder="Nama Lengkap" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control form-control-user" placeholder="Email" required />
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">
+                                    <i class="fas fa-fw fa-user-plus mr-1"></i> Daftar
+                                </button>
+                            </form>
+                            <a href="login.php" class="btn btn-secondary btn-user btn-block btn-oval mt-3">
+                                <i class="fas fa-fw fa-sign-in-alt mr-1"></i> Kembali ke Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" required />
-        </div>
-        <div class="form-group">
-            <label>Konfirmasi Password</label>
-            <input type="password" name="password2" class="form-control" required />
-        </div>
-        <div class="form-group">
-            <label>Nama Lengkap</label>
-            <input type="text" name="nama" class="form-control" required />
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" required />
-        </div>
-        <button type="submit" name="submit" class="btn btn-primary">Daftar</button>
-        <a href="login.php" class="btn btn-secondary">Kembali ke Login</a>
-    </form>
+    </div>
 </div>
+</body>
 
 <?php
 require_once('template/footer.php'); // Footer HTML

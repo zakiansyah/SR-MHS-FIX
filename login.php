@@ -61,10 +61,10 @@ endif;
 		<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     </head>
 
-    <body class="bg-gradient-warning">
+    <body class="bg-gradient-primary">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-white shadow-lg pb-3 pt-3 font-weight-bold">
             <div class="container">
-                <a class="navbar-brand text-warning" style="font-weight: 900;" href="login.php"> <i class="fa fa-database mr-2 rotate-n-15"></i> Sistem Rekomendasi Mahasiswa Berpotensi Lulus Tepat Waktu Metode SMART</a>
+                <a class="navbar-brand text-primary" style="font-weight: 900;" href="login.php"> <i class="fa fa-database mr-2 rotate-n-15"></i> Sistem Rekomendasi Mahasiswa Berpotensi Lulus Tepat Waktu Metode SMART</a>
             </div>
         </nav>
 
@@ -104,7 +104,7 @@ endif;
                                     <div class="form-group">
                                         <input required autocomplete="off" type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" />
                                     </div>
-                                    <button name="submit" type="submit" class="btn btn-orange btn-user btn-block"><i class="fas fa-fw fa-sign-in-alt mr-1"></i> Masuk</button>
+                                    <button name="submit" type="submit" class="btn btn-primary btn-user btn-block"><i class="fas fa-fw fa-sign-in-alt mr-1"></i> Masuk</button>
                                 </form>
                                 <a href="register.php" class="btn btn-primary btn-user btn-block btn-oval mt-3">
                                         <i class="fas fa-fw fa-user-plus mr-1"></i> Daftar
